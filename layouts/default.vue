@@ -36,6 +36,17 @@
         <v-icon>mdi-minus</v-icon>
       </v-btn>
       <v-toolbar-title v-text="title" />
+
+      <v-spacer />
+      <v-badge
+        color="#1DB954"
+        bordered
+        overlap
+        :value="totalFavorites"
+        :content="totalFavorites"
+      >
+        <v-icon color="#1DB954" large>mdi-heart</v-icon>
+      </v-badge>
     </v-app-bar>
     <v-main>
       <nuxt />
@@ -51,6 +62,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
@@ -73,5 +86,6 @@ export default {
       title: 'TIMWI Spotify Test',
     }
   },
+  computed: mapGetters('bookmark', ['totalFavorites']),
 }
 </script>

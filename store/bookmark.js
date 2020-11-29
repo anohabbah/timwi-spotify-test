@@ -15,4 +15,5 @@ export const mutations = {
 export const getters = {
   bookmark: (state) => state.bookmark,
   favorites: (state) => state.favorites,
+  totalFavorites: (state) => state.favorites.length,
 }

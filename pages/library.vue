@@ -1,5 +1,26 @@
 <template>
   <v-container fluid>
+    <v-tooltip left>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          to="/"
+          color="#1DB954"
+          fixed
+          elevation="6"
+          dark
+          fab
+          right
+          bottom
+          class="mb-6"
+          v-bind="attrs"
+          v-on="on"
+        >
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+      </template>
+      <span>Ajouter un album</span>
+    </v-tooltip>
+
     <v-item-group
       v-if="bookmark.length"
       multiple
