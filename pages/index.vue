@@ -28,28 +28,37 @@
             style="overflow: hidden; overflow-y: auto"
           >
             <v-list v-if="albums.length" three-line>
-              <v-list-item-group multiple>
+              <v-list-item-group
+                :value="bookmark"
+                multiple
+                @change="updateBookmark"
+              >
                 <v-subheader>Albums trouvés :</v-subheader>
 
                 <template v-for="(album, idx) in albums">
-                  <v-list-item :key="album.id">
-                    <v-list-item-avatar>
-                      <v-img :src="album.images[2].url" />
-                    </v-list-item-avatar>
+                  <v-list-item :key="album.id" :value="album">
+                    <template v-slot="{ active }">
+                      <v-list-item-avatar>
+                        <v-img :src="album.images[2].url" />
+                      </v-list-item-avatar>
 
-                    <v-list-item-content>
-                      <v-list-item-title v-text="album.name" />
-                      <v-list-item-subtitle>
-                        {{ album.total_tracks }} morceaux
-                      </v-list-item-subtitle>
-                      <v-list-item-subtitle>
-                        sortie le {{ album.release_date }}
-                      </v-list-item-subtitle>
-                    </v-list-item-content>
+                      <v-list-item-content>
+                        <v-list-item-title v-text="album.name" />
+                        <v-list-item-subtitle>
+                          {{ album.total_tracks }} morceaux
+                        </v-list-item-subtitle>
+                        <v-list-item-subtitle>
+                          sortie le {{ album.release_date }}
+                        </v-list-item-subtitle>
+                      </v-list-item-content>
 
-                    <v-list-item-action>
-                      <v-icon>mdi-bookmark-plus-outline</v-icon>
-                    </v-list-item-action>
+                      <v-list-item-action>
+                        <v-icon v-if="active" color="green lighten-1">
+                          mdi-bookmark-remove
+                        </v-icon>
+                        <v-icon v-else> mdi-bookmark-plus-outline </v-icon>
+                      </v-list-item-action>
+                    </template>
                   </v-list-item>
 
                   <v-divider v-if="idx < albums.length - 1" :key="idx" />
@@ -81,6 +90,7 @@ export default {
   },
   computed: {
     ...mapGetters('search', ['albums']),
+    ...mapGetters('bookmark', ['bookmark']),
   },
   mounted() {
     return this.$store.dispatch('auth/requestAccessToken')
@@ -92,6 +102,7 @@ export default {
         this.searchAlbumByAlbumNameOrArtistName(searchTerm)
       }
     }),
+    updateBookmark() {},
   },
 }
 </script>
