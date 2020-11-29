@@ -1,6 +1,11 @@
 <template>
   <v-container fluid>
-    <v-item-group multiple>
+    <v-item-group
+      v-if="bookmark.length"
+      multiple
+      :value="favorites"
+      @change="setFavorites"
+    >
       <v-row>
         <v-col v-for="album in bookmark" :key="album.id" md="3">
           <v-item :value="album">
@@ -46,12 +51,38 @@
         </v-col>
       </v-row>
     </v-item-group>
+
+    <v-card v-else class="main-space">
+      <v-row class="fill-height" align="center" justify="center">
+        <div class="text-center">
+          <v-icon x-large>mdi-bookmark-music</v-icon>
+          <p>Votre librairie est vide pour le moment</p>
+          <v-btn to="/" outlined rounded color="#1DB954">
+            <v-icon left>mdi-plus</v-icon>
+            Ajouter un album
+          </v-btn>
+        </div>
+      </v-row>
+    </v-card>
   </v-container>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  computed: mapGetters('bookmark', ['bookmark']),
+  computed: mapGetters('bookmark', ['bookmark', 'favorites']),
+  methods: {
+    ...mapMutations('bookmark', ['setFavorites']),
+    updateFavorites(newValue) {
+      this.setFavorites(newValue)
+    },
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+.main-space {
+  height: calc(100vh - 145px) !important;
+}
+</style>

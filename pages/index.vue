@@ -118,7 +118,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .main-space {
   height: calc(100vh - 245px) !important;
 }
