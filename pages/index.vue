@@ -15,6 +15,7 @@
             clearable
             :value="searchTerm"
             @input="search"
+            @click:clear="resetAll"
           />
         </v-toolbar>
       </v-col>
@@ -80,7 +81,7 @@
 
 <script>
 import debounce from 'lodash/fp/debounce'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 
 export default {
   data() {
@@ -95,14 +96,24 @@ export default {
   mounted() {
     return this.$store.dispatch('auth/requestAccessToken')
   },
+  beforeDestroy() {
+    this.resetAll()
+  },
   methods: {
     ...mapActions('search', ['searchAlbumByAlbumNameOrArtistName']),
+    ...mapMutations('bookmark', ['setBookmark']),
     search: debounce(300, function (searchTerm) {
       if (searchTerm) {
         this.searchAlbumByAlbumNameOrArtistName(searchTerm)
       }
     }),
-    updateBookmark() {},
+    updateBookmark(newValue) {
+      this.setBookmark(newValue)
+    },
+    resetAll() {
+      this.searchTerm = ''
+      this.$store.commit('search/setItems', {})
+    },
   },
 }
 </script>
