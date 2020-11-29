@@ -1,4 +1,5 @@
 import reduce from 'lodash/fp/reduce'
+import values from 'lodash/fp/values'
 
 export const state = () => ({
   items: {},
@@ -18,7 +19,7 @@ export const actions = {
       params: {
         q: term,
         type: 'album',
-        limit: 30,
+        limit: 20,
       },
     })
 
@@ -26,4 +27,9 @@ export const actions = {
     console.log('searchAlbumByAlbumNameOrArtistName %o', reduced)
     commit('setItems', reduced)
   },
+}
+
+export const getters = {
+  albums: (state) => values(state.items),
+  findAlbumById: (state) => (albumId) => state.items[albumId],
 }

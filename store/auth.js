@@ -17,18 +17,26 @@ export const actions = {
     const params = new URLSearchParams()
     params.append('grant_type', 'client_credentials')
 
-    const data = await this.$axios.$post(
-      'https://accounts.spotify.com/api/token',
-      params,
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: `Basic ${token}`,
-        },
-      }
-    )
+    try {
+      const data = await this.$axios.$post(
+        'https://accounts.spotify.com/api/token',
+        params,
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: `Basic ${token}`,
+          },
+        }
+      )
 
-    commit(SET_ACCESS_TOKEN, data.access_token)
+      commit(SET_ACCESS_TOKEN, data.access_token)
+    } catch (e) {
+      if (e.response) {
+        console.log(e.response.data)
+      } else {
+        console.log(e)
+      }
+    }
   },
 }
 
