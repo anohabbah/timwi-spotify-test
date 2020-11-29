@@ -1,20 +1,23 @@
-# timwi-spotify-testing
+# TIMWI Spotify Test
+
+## Technos
+- [Nuxt.js](https://nuxtjs.org)
+- [Vuetify.js](https://vuetifyjs.com)
+- [Nuxt Axios module](https://axios.nuxtjs.org/)
 
 ## Build Setup
 
 ```bash
-# install dependencies
+# installer les dépendences
 $ yarn install
+
+# Définir les identifiants de spotify
+$ copy .env.example .env // mettre à jour les clés SPOTIFY_CLIENT_ID & SPOTIFY_CLIENT_SECRET
+# dans le dashboard de spotify enregistrer `http://localhost:3000/` (attention au / à la fin) comme lien de redirection.
 
 # serve with hot reload at localhost:3000
 $ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+# Tester l’application, ouvrer ce lien dans un navigateur
+[http://localhost:3000](http://localhost:3000)
