@@ -36,28 +36,16 @@
         <v-icon>mdi-minus</v-icon>
       </v-btn>
       <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-main>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>
+        &copy; {{ new Date().getFullYear() }} &bullet; Developed by
+        <a href="https://github.com/anohabbah">Abbah Anoh</a> &bullet; Powered
+        by <a href="https://nuxtjs.org">Nuxt.js</a>
+      </span>
     </v-footer>
   </v-app>
 </template>
@@ -66,25 +54,23 @@
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      clipped: true,
+      drawer: true,
+      fixed: true,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: 'mdi-magnify',
+          title: 'Rechercher',
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          icon: 'mdi-bookmark-music',
+          title: 'Bibliothèque',
+          to: '/library',
         },
       ],
       miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
+      title: 'TIMWI Spotify Test',
     }
   },
 }
