@@ -49,7 +49,7 @@
                           {{ album.total_tracks }} morceaux
                         </v-list-item-subtitle>
                         <v-list-item-subtitle>
-                          sortie le {{ album.release_date }}
+                          sortie le {{ album.release_date | dateFormat }}
                         </v-list-item-subtitle>
                       </v-list-item-content>
 

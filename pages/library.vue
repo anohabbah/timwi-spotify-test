@@ -36,7 +36,7 @@
                     </span>
                     <span class="mx-2">&bullet;</span>
                     <span class="subheading">
-                      sortie le {{ album.release_date }}
+                      sortie le {{ album.release_date | dateFormat }}
                     </span>
                   </v-row>
                 </v-card-actions>
