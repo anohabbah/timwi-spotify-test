@@ -13,7 +13,7 @@ export const mutations = {
 
 export const actions = {
   async searchAlbumByAlbumNameOrArtistName({ commit, rootGetters }, term) {
-    this.$axios.setToken(rootGetters['auth/accessToken'], 'Bearer')
+    // this.$axios.setToken(rootGetters['auth/accessToken'], 'Bearer')
     // eslint-disable-next-line prettier/prettier
     const { albums: { items } } = await this.$axios.$get('/search', {
       params: {

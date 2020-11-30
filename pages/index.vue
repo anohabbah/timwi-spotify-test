@@ -94,7 +94,7 @@ export default {
     ...mapGetters('bookmark', ['bookmark']),
   },
   mounted() {
-    return this.$store.dispatch('auth/requestAccessToken')
+    // return this.$store.dispatch('auth/requestAccessToken')
   },
   beforeDestroy() {
     this.resetAll()
