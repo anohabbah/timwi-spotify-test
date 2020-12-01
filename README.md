@@ -19,5 +19,16 @@ $ copy .env.example .env // mettre à jour les clés SPOTIFY_CLIENT_ID & SPOTIFY
 $ yarn dev
 ```
 
-# Tester l’application, ouvrer ce lien dans un navigateur
+## Tester l’application, ouvrer ce lien dans un navigateur
 [http://localhost:3000](http://localhost:3000)
+
+## Mon travail
+Vous trouverez le code que j’ai produit principalement ici :
+- /filters/*
+- /layouts/default.vue
+- /pages/*
+- /plugins/*
+- /store/*
+- /.env
+- /.env.example
+- /nuxt.config.js
