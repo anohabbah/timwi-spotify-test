@@ -29,6 +29,5 @@ Vous trouverez le code que j’ai produit principalement ici :
 - /pages/*
 - /plugins/*
 - /store/*
-- /.env
 - /.env.example
 - /nuxt.config.js
