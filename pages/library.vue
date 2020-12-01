@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-tooltip left>
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <v-btn
           to="/"
           color="#1DB954"
@@ -30,7 +30,7 @@
       <v-row>
         <v-col v-for="album in bookmark" :key="album.id" md="3">
           <v-item :value="album">
-            <template v-slot="{ active, toggle }">
+            <template #default="{ active, toggle }">
               <v-card>
                 <v-img
                   class="align-end"

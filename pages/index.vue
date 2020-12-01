@@ -38,7 +38,7 @@
 
                 <template v-for="(album, idx) in albums">
                   <v-list-item :key="album.id" :value="album">
-                    <template v-slot="{ active }">
+                    <template #default="{ active }">
                       <v-list-item-avatar>
                         <v-img :src="album.images[2].url" />
                       </v-list-item-avatar>
