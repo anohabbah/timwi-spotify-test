@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
-    "core-js": "^3.9.0",
     "date-fns": "^2.18.0",
+    "core-js": "^3.9.1",
     "nuxt": "^2.15.2",
     "lodash": "^4.17.21"
   },
@@ -36,7 +36,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.5.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint": "^7.20.0",
+    "eslint": "^7.21.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "husky": "^5.1.1",
     "eslint-plugin-prettier": "^3.3.1",
