@@ -42,7 +42,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.4.7",
     "lint-staged": "^12.1.7",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "vue-jest": "^3.0.4"
   }
 }
